@@ -15,7 +15,7 @@ public class IssuesApiController(ISender sender) : ControllerBase
 {
     private string CurrentUser => User.Identity?.Name ?? "unknown";
 
-    // Retrieves an APS viewer access token. 
+    // Retrieves an APS viewer access token.. 
     [HttpPost]
     public async Task<IActionResult> GetViewerToken(CancellationToken ct)
     {
