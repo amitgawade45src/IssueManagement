@@ -1,0 +1,62 @@
+﻿services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: issuemanagement-sql
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Admin123!"
+      MSSQL_PID: Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+
+  minio:
+    image: minio/minio:latest
+    container_name: issuemanagement-minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: Admin
+      MINIO_ROOT_PASSWORD: Admin123!
+    ports:
+      - "9004:9000"
+      - "9005:9001"
+    volumes:
+      - minio-data:/data
+
+  api:
+    build:
+      context: .
+      dockerfile: IssueManagement/Dockerfile
+    container_name: issuemanagement-api
+    restart: unless-stopped
+    depends_on:
+      - sqlserver
+      - minio
+    ports:
+      - "5000:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+
+      ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=IssueManagementDb;User Id=sa;Password=Admin123!;TrustServerCertificate=True;"
+
+      MinIO__Endpoint: "minio"
+      MinIO__Port: 9000
+      MinIO__AccessKey: "Admin"
+      MinIO__SecretKey: "Admin123!"
+      MinIO__UseSSL: "false"
+      MinIO__BucketName: "issue-management-photos"
+      MinIO__ExpiryInSeconds: 3600
+
+      APS__ClientId: "U4kXR3o9HEREsY9rdh0HfFZFry6FlvCkbFmDdLNXQyY8uxND"
+      APS__ClientSecret: "qBunt0IAttFAp0IvCjbYJdqfFIpyHEydnCGrpaY3vqoMVZRAs8njlb7Tp4wgyyV7"
+      APS__ModelUrn: "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6cHJvamVjdC1idWNrZXQvc2FtcGxlX21lcC5ydnQ"
+      APS__AuthURI: "https://developer.api.autodesk.com/authentication/v2/token"
+      APS__GrantType: "client_credentials"
+      APS__Scope: "data:read viewables:read"
+
+volumes:
+  sqlserver-data:
+  minio-data:

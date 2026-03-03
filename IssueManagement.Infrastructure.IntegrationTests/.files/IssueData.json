@@ -1,0 +1,61 @@
+[
+  {
+    "ID": "75AA05A1-7360-4156-9C43-04AD7C246A07",
+    "Title": "testtetet",
+    "Description": "testtete",
+    "Type": "SafetyDeficiency",
+    "Status": "InProgress",
+    "LocationType": "ElementSpatial",
+    "LocationDbId": 4985,
+    "LocationWorldX": 19.5700551526309,
+    "LocationWorldY": -0.510922355196479,
+    "LocationWorldZ": 47.7985219955444,
+    "CreatedOn": "2026-03-02T10:14:13.7244252",
+    "CreatedBy": "Mr. Sato",
+    "UpdatedOn": "2026-03-02T10:25:11.3011796",
+    "UpdatedBy": null,
+    "DeletedOn": null,
+
+    "IssuePhotos": [
+      {
+        "ID": "38F9F4C7-5BCD-41AE-BD21-D830D783B868",
+        "IssueId": "75AA05A1-7360-4156-9C43-04AD7C246A07",
+        "BlobKey": "75aa05a1-7360-4156-9c43-04ad7c246a07/7fa7525a-7251-4e30-8ef0-9d95009b8c14.jpg",
+        "FileName": "shared image (2).jpg",
+        "ContentType": "image/jpeg",
+        "CorrectionStage": "BeforeCorrection",
+        "UploadedAt": "2026-03-02T10:39:34.4659704",
+        "CreatedOn": "2026-03-02T10:39:34.4657991",
+        "CreatedBy": "Mr. Sato",
+        "UpdatedOn": null,
+        "UpdatedBy": null,
+        "DeletedOn": null
+      }
+    ],
+
+    "IssueStatusHistories": [
+      {
+        "ID": "AB0E3473-D106-4587-BA76-43CB55694D01",
+        "IssueId": "75AA05A1-7360-4156-9C43-04AD7C246A07",
+        "Status": "Open",
+        "Comment": "Issue created",
+        "CreatedOn": "2026-03-02T10:14:13.7246531",
+        "CreatedBy": null,
+        "UpdatedOn": "2026-03-02T10:14:13.7246531",
+        "UpdatedBy": null,
+        "DeletedOn": null
+      },
+      {
+        "ID": "3BDBFC4A-1132-4C4A-9E8A-9DD0D4513B72",
+        "IssueId": "75AA05A1-7360-4156-9C43-04AD7C246A07",
+        "Status": "InProgress",
+        "Comment": null,
+        "CreatedOn": "2026-03-02T10:25:11.3014774",
+        "CreatedBy": "Mr. Sato",
+        "UpdatedOn": null,
+        "UpdatedBy": null,
+        "DeletedOn": null
+      }
+    ]
+  }
+]

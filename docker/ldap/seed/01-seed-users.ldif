@@ -1,0 +1,87 @@
+# ???????????????????????????????????????????????????????
+#  LDAP Seed Data ? BIM Issue Management Users
+#  Loaded automatically on first container start
+# ???????????????????????????????????????????????????????
+
+# „Ÿ„Ÿ Organizational Units „Ÿ„Ÿ
+dn: ou=people,dc=issuemanagement,dc=local
+objectClass: organizationalUnit
+ou: people
+
+dn: ou=groups,dc=issuemanagement,dc=local
+objectClass: organizationalUnit
+ou: groups
+
+# „Ÿ„Ÿ Users „Ÿ„Ÿ
+dn: uid=sato,ou=people,dc=issuemanagement,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Sato Taro
+sn: Sato
+givenName: Taro
+displayName: Mr. Sato (Site Supervisor)
+uid: sato
+uidNumber: 1001
+gidNumber: 1001
+homeDirectory: /home/sato
+mail: sato@issuemanagement.local
+userPassword: Sato1234!
+title: Site Supervisor
+o: General Contractor
+
+dn: uid=yamamoto,ou=people,dc=issuemanagement,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Yamamoto Kenji
+sn: Yamamoto
+givenName: Kenji
+displayName: Mr. Yamamoto (MEP Manager)
+uid: yamamoto
+uidNumber: 1002
+gidNumber: 1001
+homeDirectory: /home/yamamoto
+mail: yamamoto@issuemanagement.local
+userPassword: Yamamoto1234!
+title: MEP Manager
+o: Subcontractor
+
+dn: uid=nakamura,ou=people,dc=issuemanagement,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Nakamura Hiroshi
+sn: Nakamura
+givenName: Hiroshi
+displayName: Mr. Nakamura (Safety Manager)
+uid: nakamura
+uidNumber: 1003
+gidNumber: 1001
+homeDirectory: /home/nakamura
+mail: nakamura@issuemanagement.local
+userPassword: Nakamura1234!
+title: Safety Manager
+o: General Contractor
+
+# „Ÿ„Ÿ Groups „Ÿ„Ÿ
+dn: cn=supervisors,ou=groups,dc=issuemanagement,dc=local
+objectClass: posixGroup
+cn: supervisors
+gidNumber: 1001
+memberUid: sato
+memberUid: nakamura
+
+dn: cn=subcontractors,ou=groups,dc=issuemanagement,dc=local
+objectClass: posixGroup
+cn: subcontractors
+gidNumber: 1002
+memberUid: yamamoto
+
+dn: cn=all-users,ou=groups,dc=issuemanagement,dc=local
+objectClass: posixGroup
+cn: all-users
+gidNumber: 1003
+memberUid: sato
+memberUid: yamamoto
+memberUid: nakamura

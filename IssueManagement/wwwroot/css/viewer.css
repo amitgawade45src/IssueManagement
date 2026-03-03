@@ -1,0 +1,287 @@
+/* „Ÿ„Ÿ Viewer Layout „Ÿ„Ÿ */
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.viewer-container {
+    display: flex;
+    height: calc(100vh - 56px); /* subtract navbar height */
+}
+
+#apsViewer {
+    flex: 1;
+    position: relative;
+}
+
+/* „Ÿ„Ÿ Side Panel „Ÿ„Ÿ */
+.side-panel {
+    width: 420px;
+    min-width: 420px;
+    background: #f8f9fa;
+    border-left: 1px solid #dee2e6;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.side-panel-header {
+    padding: 12px 16px;
+    background: #343a40;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.side-panel-header h5 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.side-panel-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+}
+
+/* „Ÿ„Ÿ Issue List „Ÿ„Ÿ */
+.issue-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.issue-list-item {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e9ecef;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.issue-list-item:hover {
+    background: #e9ecef;
+}
+
+.issue-list-item.active {
+    background: #d0e8ff;
+    border-left: 3px solid #0d6efd;
+}
+
+.issue-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+}
+
+.issue-meta {
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+
+/* „Ÿ„Ÿ Status Badges „Ÿ„Ÿ */
+.badge-open { background: #dc3545; }
+.badge-inprogress { background: #fd7e14; }
+.badge-done { background: #198754; }
+
+/* „Ÿ„Ÿ Issue Detail Panel „Ÿ„Ÿ */
+.issue-detail {
+    padding: 16px;
+}
+
+.issue-detail h6 {
+    font-size: 0.85rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    margin-top: 16px;
+    margin-bottom: 6px;
+}
+
+.issue-detail .description-text {
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+}
+
+/* „Ÿ„Ÿ Photo Grid „Ÿ„Ÿ */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.photo-item {
+    position: relative;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.15s;
+}
+
+.photo-item:hover img {
+    border-color: #0d6efd;
+}
+
+.photo-delete-btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 22px;
+    height: 22px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(220, 53, 69, 0.85);
+    color: #fff;
+    font-size: 11px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.photo-item:hover .photo-delete-btn {
+    display: flex;
+}
+
+.photo-delete-btn:hover {
+    background: #dc3545;
+}
+
+/* „Ÿ„Ÿ Status History Timeline „Ÿ„Ÿ */
+.status-history {
+    list-style: none;
+    padding: 0 0 0 16px;
+    margin: 0;
+    font-size: 0.8rem;
+    position: relative;
+}
+
+.status-history::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #dee2e6;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 0 0 16px 20px;
+    border-bottom: none;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -16px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #dee2e6;
+    z-index: 1;
+}
+
+.timeline-dot.dot-open { background: #dc3545; box-shadow: 0 0 0 2px #dc3545; }
+.timeline-dot.dot-inprogress { background: #fd7e14; box-shadow: 0 0 0 2px #fd7e14; }
+.timeline-dot.dot-done { background: #198754; box-shadow: 0 0 0 2px #198754; }
+
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* „Ÿ„Ÿ Create Issue Form „Ÿ„Ÿ */
+.create-form {
+    padding: 16px;
+}
+
+.create-form .form-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.create-form .form-control,
+.create-form .form-select {
+    font-size: 0.85rem;
+}
+
+/* „Ÿ„Ÿ Toolbar „Ÿ„Ÿ */
+.viewer-toolbar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    display: flex;
+    gap: 6px;
+}
+
+.viewer-toolbar .btn {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* „Ÿ„Ÿ Pin Markers „Ÿ„Ÿ */
+.issue-pin {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    transition: transform 0.15s;
+}
+
+.issue-pin:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.issue-pin.pin-open { background: #dc3545; }
+.issue-pin.pin-inprogress { background: #fd7e14; }
+.issue-pin.pin-done { background: #198754; }
+
+/* „Ÿ„Ÿ Filter bar „Ÿ„Ÿ */
+.filter-bar {
+    padding: 8px 16px;
+    background: #fff;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.filter-bar .form-select {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    width: auto;
+}
+
+/* „Ÿ„Ÿ Placement mode crosshair „Ÿ„Ÿ */
+.placement-mode {
+    cursor: crosshair !important;
+}
