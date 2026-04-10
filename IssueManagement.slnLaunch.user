@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "IssueManagement\\IssueManagement.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "IssueManagement.AppHost\\IssueManagement.AppHost.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

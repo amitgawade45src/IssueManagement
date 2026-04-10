@@ -1,7 +1,5 @@
 # Visual Studio
 .vs/
-*.user
-*.suo
 
 # Build output
 bin/
@@ -9,11 +7,5 @@ obj/
 
 # Logs
 Logs/
-
-# User-specific
-*.csproj.user
-*.slnLaunch.user
-
-# Aspire / AppHost
-IssueManagement.AppHost/
-IssueManagement.ServiceDefaults/
+ 
+ 
