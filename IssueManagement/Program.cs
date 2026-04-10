@@ -1,10 +1,13 @@
 using IssueManagement.Application;
 using IssueManagement.Infrastructure;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi; 
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.AddServiceDefaults();
 
 
 // Configure Serilog from appsettings.json
@@ -15,10 +18,10 @@ builder.Host.UseSerilog((context, services, configuration) =>
 builder.Services.AddRazorPages();
 builder.Services.AddControllers();
 builder.Services.AddApplication();
-builder.Services.AddInfrastructure(builder.Configuration); 
+builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddHealthChecks();
- 
-// „Ÿ„Ÿ Cookie Authentication „Ÿ„Ÿ
+
+// â”€â”€ Cookie Authentication â”€â”€
 builder.Services
     .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
@@ -66,7 +69,7 @@ builder.Services.AddAuthorization(options =>
         policy.RequireRole("Admin", "Manager", "Viewer"));
 });
 
-// „Ÿ„Ÿ Swagger / OpenAPI „Ÿ„Ÿ
+// â”€â”€ Swagger / OpenAPI â”€â”€
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -86,13 +89,35 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
+app.MapDefaultEndpoints();
+
+// â”€â”€ Apply pending EF Core migrations on startup â”€â”€
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<IssueManagement.Infrastructure.Persistence.IssueDbContext>();
+    var retries = 10;
+    for (var i = 0; i < retries; i++)
+    {
+        try
+        {
+            await db.Database.MigrateAsync();
+            break;
+        }
+        catch (Exception ex) when (i < retries - 1)
+        {
+            app.Logger.LogWarning(ex, "Database not ready, retrying in 3 seconds... ({Attempt}/{MaxRetries})", i + 1, retries);
+            await Task.Delay(3000);
+        }
+    }
+}
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
     app.UseHsts();
 }
 
-// „Ÿ„Ÿ Swagger middleware (development only) „Ÿ„Ÿ
+// â”€â”€ Swagger middleware (development only) â”€â”€
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -118,6 +143,6 @@ app.MapHealthChecks("/healthcheck");
 app.MapRazorPages();
 app.MapControllers();
 
-app.Run();
- 
+await app.RunAsync();
+
 public partial class Program;

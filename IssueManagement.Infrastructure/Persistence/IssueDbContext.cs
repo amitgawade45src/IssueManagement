@@ -17,7 +17,7 @@ public class IssueDbContext(DbContextOptions<IssueDbContext> options) : DbContex
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(IssueDbContext).Assembly);
     }
 
-    public sealed override async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+    public sealed override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         try
         {

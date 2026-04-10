@@ -143,7 +143,18 @@ const IssueManager = (() => {
         if (params.toString()) url += '?' + params.toString();
 
         const resp = await fetch(url);
+        if (!resp.ok) {
+            console.error('Failed to load issues:', resp.status, resp.statusText);
+            issues = [];
+            renderIssueList();
+            renderPins();
+            return;
+        }
         issues = await resp.json();
+        if (!Array.isArray(issues)) {
+            console.error('Unexpected response format:', issues);
+            issues = [];
+        }
 
         renderIssueList();
         renderPins();
@@ -478,7 +489,8 @@ const IssueManager = (() => {
                         const prevEntry = idx < arr.length - 1 ? arr[idx + 1] : null;
                         const isCreation = !prevEntry;
                         const fromStatus = prevEntry ? prevEntry.status : h.status;
-                        const isSame = fromStatus === h.status;
+                            const isSame = fromStatus === h.status;
+                             
                         return `
                         <li class="timeline-item">
                             <div class="timeline-dot dot-${STATUS_CSS[h.status]}"></div>
@@ -493,7 +505,7 @@ const IssueManager = (() => {
                                                <span class="badge badge-${STATUS_CSS[h.status]} ms-1">${STATUS_LABELS[h.status]}</span>`
                                     }
                                 </div>
-                                <small class="text-muted">${h.updatedBy ? h.updatedBy + ' &middot; ' : ''}${h.comment ? escapeHtml(h.comment) + ' &middot; ' : ''}${new Date(h.updatedOn).toLocaleString()}</small>
+                                <small class="text-muted">${h.updatedBy ? h.updatedBy + ' &middot; ' : ''}${h.comment ? escapeHtml(h.comment) + ' &middot; ' : ''}${new Date(h.createdOn).toLocaleString()}</small>
                             </div>
                         </li>`;
                     }).join('')}
