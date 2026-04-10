@@ -1,0 +1,389 @@
+2026-04-10 15:54:38.584 +09:00 | WRN | TraceId:  | Database not ready, retrying in 3 seconds... (1/10) | Ex: Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No connection could be made because the target machine actively refused it.)
+ ---> System.ComponentModel.Win32Exception (10061): No connection could be made because the target machine actively refused it.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.Exists()
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(DatabaseFacade databaseFacade)
+   at Program.<Main>$(String[] args) in C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement\Program.cs:line 103
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10061,State:0,Class:20
+ | Source: IssueManagement
+2026-04-10 15:54:41.648 +09:00 | WRN | TraceId:  | Database not ready, retrying in 3 seconds... (2/10) | Ex: Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No connection could be made because the target machine actively refused it.)
+ ---> System.ComponentModel.Win32Exception (10061): No connection could be made because the target machine actively refused it.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.Exists()
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(DatabaseFacade databaseFacade)
+   at Program.<Main>$(String[] args) in C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement\Program.cs:line 103
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10061,State:0,Class:20
+ | Source: IssueManagement
+2026-04-10 15:55:01.777 +09:00 | WRN | TraceId:  | Database not ready, retrying in 3 seconds... (3/10) | Ex: Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No connection could be made because the target machine actively refused it.)
+ ---> System.ComponentModel.Win32Exception (10061): No connection could be made because the target machine actively refused it.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.Exists()
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(DatabaseFacade databaseFacade)
+   at Program.<Main>$(String[] args) in C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement\Program.cs:line 103
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10061,State:0,Class:20
+ | Source: IssueManagement
+2026-04-10 15:55:04.802 +09:00 | WRN | TraceId:  | Database not ready, retrying in 3 seconds... (4/10) | Ex: Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No connection could be made because the target machine actively refused it.)
+ ---> System.ComponentModel.Win32Exception (10061): No connection could be made because the target machine actively refused it.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.Exists()
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(DatabaseFacade databaseFacade)
+   at Program.<Main>$(String[] args) in C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement\Program.cs:line 103
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10061,State:0,Class:20
+ | Source: IssueManagement
+2026-04-10 15:55:07.836 +09:00 | WRN | TraceId:  | Database not ready, retrying in 3 seconds... (5/10) | Ex: Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No connection could be made because the target machine actively refused it.)
+ ---> System.ComponentModel.Win32Exception (10061): No connection could be made because the target machine actively refused it.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.Exists()
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(DatabaseFacade databaseFacade)
+   at Program.<Main>$(String[] args) in C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement\Program.cs:line 103
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10061,State:0,Class:20
+ | Source: IssueManagement
+2026-04-10 15:55:10.853 +09:00 | WRN | TraceId:  | Database not ready, retrying in 3 seconds... (6/10) | Ex: Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No connection could be made because the target machine actively refused it.)
+ ---> System.ComponentModel.Win32Exception (10061): No connection could be made because the target machine actively refused it.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.Exists()
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(DatabaseFacade databaseFacade)
+   at Program.<Main>$(String[] args) in C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement\Program.cs:line 103
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10061,State:0,Class:20
+ | Source: IssueManagement
+2026-04-10 15:58:15.165 +09:00 | INF | TraceId:  | Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 15:58:15.283 +09:00 | INF | TraceId:  | Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]'); | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 15:58:15.296 +09:00 | INF | TraceId:  | Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 15:58:15.305 +09:00 | INF | TraceId:  | Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]'); | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 15:58:15.346 +09:00 | INF | TraceId:  | Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId]; | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 15:58:15.370 +09:00 | INF | TraceId:  | No migrations were applied. The database is already up to date. | Ex:  | Source: Microsoft.EntityFrameworkCore.Migrations
+2026-04-10 15:58:15.548 +09:00 | INF | TraceId:  | User profile is available. Using 'C:\Users\105-4846\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. | Ex:  | Source: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager
+2026-04-10 15:58:16.460 +09:00 | ERR | TraceId:  | Hosting failed to start | Ex: System.IO.IOException: Failed to bind to address https://127.0.0.1:7053: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+ | Source: Microsoft.Extensions.Hosting.Internal.Host
+2026-04-10 15:58:45.121 +09:00 | INF | TraceId:  | Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 15:58:45.191 +09:00 | INF | TraceId:  | Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]'); | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 15:58:45.200 +09:00 | INF | TraceId:  | Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 15:58:45.206 +09:00 | INF | TraceId:  | Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]'); | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 15:58:45.224 +09:00 | INF | TraceId:  | Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId]; | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 15:58:45.240 +09:00 | INF | TraceId:  | No migrations were applied. The database is already up to date. | Ex:  | Source: Microsoft.EntityFrameworkCore.Migrations
+2026-04-10 15:58:45.332 +09:00 | INF | TraceId:  | User profile is available. Using 'C:\Users\105-4846\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. | Ex:  | Source: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager
+2026-04-10 15:58:45.645 +09:00 | INF | TraceId:  | Now listening on: https://localhost:7053 | Ex:  | Source: Microsoft.Hosting.Lifetime
+2026-04-10 15:58:45.649 +09:00 | INF | TraceId:  | Now listening on: http://localhost:5102 | Ex:  | Source: Microsoft.Hosting.Lifetime
+2026-04-10 15:58:45.701 +09:00 | INF | TraceId:  | Application started. Press Ctrl+C to shut down. | Ex:  | Source: Microsoft.Hosting.Lifetime
+2026-04-10 15:58:45.704 +09:00 | INF | TraceId:  | Hosting environment: Development | Ex:  | Source: Microsoft.Hosting.Lifetime
+2026-04-10 15:58:45.707 +09:00 | INF | TraceId:  | Content root path: C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement | Ex:  | Source: Microsoft.Hosting.Lifetime
+2026-04-10 15:58:46.142 +09:00 | INF | TraceId: 0a8bd19f775b7588b315a96bf90d5e45 | Request starting HTTP/2 GET https://localhost:7053/ - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:46.426 +09:00 | INF | TraceId: 0a8bd19f775b7588b315a96bf90d5e45 | Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user. | Ex:  | Source: Microsoft.AspNetCore.Authorization.DefaultAuthorizationService
+2026-04-10 15:58:46.434 +09:00 | INF | TraceId: 0a8bd19f775b7588b315a96bf90d5e45 | AuthenticationScheme: Cookies was challenged. | Ex:  | Source: Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler
+2026-04-10 15:58:46.438 +09:00 | INF | TraceId: 0a8bd19f775b7588b315a96bf90d5e45 | HTTP GET / responded 302 in 31.0180 ms | Ex:  | Source: Serilog.AspNetCore.RequestLoggingMiddleware
+2026-04-10 15:58:46.450 +09:00 | INF | TraceId: 0a8bd19f775b7588b315a96bf90d5e45 | Request finished HTTP/2 GET https://localhost:7053/ - 302 null null 338.2033ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:46.458 +09:00 | INF | TraceId: 821faf49a4bf6ef7c512105d4f145d51 | Request starting HTTP/2 GET https://localhost:7053/Auth/Login?ReturnUrl=%2F - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:46.475 +09:00 | INF | TraceId: 821faf49a4bf6ef7c512105d4f145d51 | Executing endpoint '/Auth/Login' | Ex:  | Source: Microsoft.AspNetCore.Routing.EndpointMiddleware
+2026-04-10 15:58:46.571 +09:00 | INF | TraceId: 821faf49a4bf6ef7c512105d4f145d51 | Route matched with {page = "/Auth/Login", action = "", controller = ""}. Executing page /Auth/Login | Ex:  | Source: Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker
+2026-04-10 15:58:46.591 +09:00 | INF | TraceId: 821faf49a4bf6ef7c512105d4f145d51 | Executing handler method IssueManagement.Pages.Auth.LoginModel.OnGet - ModelState is "Valid" | Ex:  | Source: Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker
+2026-04-10 15:58:46.598 +09:00 | INF | TraceId: 821faf49a4bf6ef7c512105d4f145d51 | Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult. | Ex:  | Source: Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker
+2026-04-10 15:58:46.696 +09:00 | INF | TraceId: 821faf49a4bf6ef7c512105d4f145d51 | Executed page /Auth/Login in 120.0608ms | Ex:  | Source: Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker
+2026-04-10 15:58:46.700 +09:00 | INF | TraceId: 821faf49a4bf6ef7c512105d4f145d51 | Executed endpoint '/Auth/Login' | Ex:  | Source: Microsoft.AspNetCore.Routing.EndpointMiddleware
+2026-04-10 15:58:46.703 +09:00 | INF | TraceId: 821faf49a4bf6ef7c512105d4f145d51 | HTTP GET /Auth/Login responded 200 in 233.2260 ms | Ex:  | Source: Serilog.AspNetCore.RequestLoggingMiddleware
+2026-04-10 15:58:46.712 +09:00 | INF | TraceId: 821faf49a4bf6ef7c512105d4f145d51 | Request finished HTTP/2 GET https://localhost:7053/Auth/Login?ReturnUrl=%2F - 200 null text/html; charset=utf-8 254.2345ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:46.712 +09:00 | INF | TraceId: 8adb12b6e9fd58a5d6f2ebbc49f04e03 | Request starting HTTP/2 GET https://localhost:7053/lib/bootstrap/dist/css/bootstrap.min.css - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:46.713 +09:00 | INF | TraceId: de6473d48172fcddc26f1e2333a57699 | Request starting HTTP/2 GET https://localhost:7053/_framework/aspnetcore-browser-refresh.js - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:46.713 +09:00 | INF | TraceId: 18e14d527700a969216939520b107747 | Request starting HTTP/2 GET https://localhost:7053/_vs/browserLink - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:46.745 +09:00 | INF | TraceId: de6473d48172fcddc26f1e2333a57699 | Request finished HTTP/2 GET https://localhost:7053/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 32.7753ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:46.771 +09:00 | INF | TraceId: 8adb12b6e9fd58a5d6f2ebbc49f04e03 | Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css' | Ex:  | Source: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware
+2026-04-10 15:58:46.777 +09:00 | INF | TraceId: 8adb12b6e9fd58a5d6f2ebbc49f04e03 | Request finished HTTP/2 GET https://localhost:7053/lib/bootstrap/dist/css/bootstrap.min.css - 200 162726 text/css 64.9177ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:46.827 +09:00 | INF | TraceId: 18e14d527700a969216939520b107747 | Request finished HTTP/2 GET https://localhost:7053/_vs/browserLink - 200 null text/javascript; charset=UTF-8 114.6656ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:48.005 +09:00 | INF | TraceId: 2b4991fe2bc314747fcbc5983c77eb8e | Request starting HTTP/2 GET https://localhost:7053/favicon.ico - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:48.039 +09:00 | INF | TraceId: 2b4991fe2bc314747fcbc5983c77eb8e | Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement\wwwroot\favicon.ico' | Ex:  | Source: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware
+2026-04-10 15:58:48.043 +09:00 | INF | TraceId: 2b4991fe2bc314747fcbc5983c77eb8e | Request finished HTTP/2 GET https://localhost:7053/favicon.ico - 200 5430 image/x-icon 37.8306ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:50.944 +09:00 | INF | TraceId: 9c1debfd0bb7ef58a1ce10ece480b0b1 | Request starting HTTP/2 POST https://localhost:7053/Auth/Login?returnUrl=%2F - application/x-www-form-urlencoded 249 | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:50.955 +09:00 | INF | TraceId: 9c1debfd0bb7ef58a1ce10ece480b0b1 | Executing endpoint '/Auth/Login' | Ex:  | Source: Microsoft.AspNetCore.Routing.EndpointMiddleware
+2026-04-10 15:58:50.958 +09:00 | INF | TraceId: 9c1debfd0bb7ef58a1ce10ece480b0b1 | Route matched with {page = "/Auth/Login", action = "", controller = ""}. Executing page /Auth/Login | Ex:  | Source: Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker
+2026-04-10 15:58:50.973 +09:00 | INF | TraceId: 9c1debfd0bb7ef58a1ce10ece480b0b1 | Executing handler method IssueManagement.Pages.Auth.LoginModel.OnPostAsync - ModelState is "Valid" | Ex:  | Source: Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker
+2026-04-10 15:58:50.982 +09:00 | INF | TraceId: 9c1debfd0bb7ef58a1ce10ece480b0b1 | AuthenticationScheme: Cookies signed in. | Ex:  | Source: Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler
+2026-04-10 15:58:50.985 +09:00 | INF | TraceId: 9c1debfd0bb7ef58a1ce10ece480b0b1 | Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.LocalRedirectResult. | Ex:  | Source: Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker
+2026-04-10 15:58:50.989 +09:00 | INF | TraceId: 9c1debfd0bb7ef58a1ce10ece480b0b1 | Executing LocalRedirectResult, redirecting to /. | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.LocalRedirectResultExecutor
+2026-04-10 15:58:50.991 +09:00 | INF | TraceId: 9c1debfd0bb7ef58a1ce10ece480b0b1 | Executed page /Auth/Login in 29.9511ms | Ex:  | Source: Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker
+2026-04-10 15:58:50.994 +09:00 | INF | TraceId: 9c1debfd0bb7ef58a1ce10ece480b0b1 | Executed endpoint '/Auth/Login' | Ex:  | Source: Microsoft.AspNetCore.Routing.EndpointMiddleware
+2026-04-10 15:58:50.997 +09:00 | INF | TraceId: 9c1debfd0bb7ef58a1ce10ece480b0b1 | HTTP POST /Auth/Login responded 302 in 43.8119 ms | Ex:  | Source: Serilog.AspNetCore.RequestLoggingMiddleware
+2026-04-10 15:58:51.000 +09:00 | INF | TraceId: 9c1debfd0bb7ef58a1ce10ece480b0b1 | Request finished HTTP/2 POST https://localhost:7053/Auth/Login?returnUrl=%2F - 302 null null 56.1842ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.003 +09:00 | INF | TraceId: e5c59b11acf87051356175651358b3eb | Request starting HTTP/2 GET https://localhost:7053/ - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.017 +09:00 | INF | TraceId: e5c59b11acf87051356175651358b3eb | Executing endpoint '/Index' | Ex:  | Source: Microsoft.AspNetCore.Routing.EndpointMiddleware
+2026-04-10 15:58:51.022 +09:00 | INF | TraceId: e5c59b11acf87051356175651358b3eb | Route matched with {page = "/Index", action = "", controller = ""}. Executing page /Index | Ex:  | Source: Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker
+2026-04-10 15:58:51.025 +09:00 | INF | TraceId: e5c59b11acf87051356175651358b3eb | Executing handler method IssueManagement.Pages.IndexModel.OnGet - ModelState is "Valid" | Ex:  | Source: Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker
+2026-04-10 15:58:51.054 +09:00 | INF | TraceId: e5c59b11acf87051356175651358b3eb | Executed handler method OnGet, returned result . | Ex:  | Source: Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker
+2026-04-10 15:58:51.059 +09:00 | INF | TraceId: e5c59b11acf87051356175651358b3eb | Executing an implicit handler method - ModelState is "Valid" | Ex:  | Source: Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker
+2026-04-10 15:58:51.062 +09:00 | INF | TraceId: e5c59b11acf87051356175651358b3eb | Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult. | Ex:  | Source: Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker
+2026-04-10 15:58:51.181 +09:00 | INF | TraceId: e5c59b11acf87051356175651358b3eb | Executed page /Index in 156.0564ms | Ex:  | Source: Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker
+2026-04-10 15:58:51.194 +09:00 | INF | TraceId: e5c59b11acf87051356175651358b3eb | Executed endpoint '/Index' | Ex:  | Source: Microsoft.AspNetCore.Routing.EndpointMiddleware
+2026-04-10 15:58:51.197 +09:00 | INF | TraceId: 10c1e197fb0d632cb215d3d3efea6ab7 | Request starting HTTP/2 GET https://localhost:7053/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.201 +09:00 | INF | TraceId: d5dc9453b14d21bfa5282fbe137ea679 | Request starting HTTP/2 GET https://localhost:7053/lib/jquery/dist/jquery.min.js - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.250 +09:00 | INF | TraceId: e5c59b11acf87051356175651358b3eb | HTTP GET / responded 200 in 236.9272 ms | Ex:  | Source: Serilog.AspNetCore.RequestLoggingMiddleware
+2026-04-10 15:58:51.200 +09:00 | INF | TraceId: c3e9934c79f16623c6f94c7203117f7f | Request starting HTTP/2 GET https://localhost:7053/IssueManagement.styles.css?v=NnpDPRpQFVScSj0M8wdZ6wSrfk1jh0ms-iQdQEDKogQ - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.200 +09:00 | INF | TraceId: c71079968525ebb20bf61f6d9e9e3837 | Request starting HTTP/2 GET https://localhost:7053/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.298 +09:00 | INF | TraceId: e5c59b11acf87051356175651358b3eb | Request finished HTTP/2 GET https://localhost:7053/ - 200 null text/html; charset=utf-8 295.4292ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.230 +09:00 | INF | TraceId: dc8fa21f9aca80405520ebe923571b51 | Request starting HTTP/2 GET https://localhost:7053/_framework/aspnetcore-browser-refresh.js - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.200 +09:00 | INF | TraceId: 2cd57a5677e3fd438bb4c289c5b10bce | Request starting HTTP/2 GET https://localhost:7053/css/viewer.css?v=X_l3K5cJ0pn5fo3u9Hccg1bS7TFMYl-BicHLN0okZpM - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.307 +09:00 | INF | TraceId: c3e9934c79f16623c6f94c7203117f7f | Sending file. Request path: '/IssueManagement.styles.css'. Physical path: 'C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement\obj\Debug\net8.0\scopedcss\bundle\IssueManagement.styles.css' | Ex:  | Source: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware
+2026-04-10 15:58:51.232 +09:00 | INF | TraceId: 2711340fbc1beb824f88b8815283ecd3 | Request starting HTTP/2 GET https://localhost:7053/js/viewer.js?v=THFSpdpM5srCm2eY0W9QQWeloq3XT5CtDGxMlsruRy0 - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.232 +09:00 | INF | TraceId: 747fb902ffd314ac1071307d068503a0 | Request starting HTTP/2 GET https://localhost:7053/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.334 +09:00 | INF | TraceId: 2cd57a5677e3fd438bb4c289c5b10bce | Sending file. Request path: '/css/viewer.css'. Physical path: 'C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement\wwwroot\css\viewer.css' | Ex:  | Source: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware
+2026-04-10 15:58:51.336 +09:00 | INF | TraceId: c3e9934c79f16623c6f94c7203117f7f | Request finished HTTP/2 GET https://localhost:7053/IssueManagement.styles.css?v=NnpDPRpQFVScSj0M8wdZ6wSrfk1jh0ms-iQdQEDKogQ - 200 1109 text/css 137.2972ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.252 +09:00 | INF | TraceId: f868ec0d7f33fa0ea0865638dd97ccb0 | Request starting HTTP/2 GET https://localhost:7053/_vs/browserLink - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.326 +09:00 | INF | TraceId: dc8fa21f9aca80405520ebe923571b51 | Request finished HTTP/2 GET https://localhost:7053/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 96.6416ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.353 +09:00 | INF | TraceId: 2cd57a5677e3fd438bb4c289c5b10bce | Request finished HTTP/2 GET https://localhost:7053/css/viewer.css?v=X_l3K5cJ0pn5fo3u9Hccg1bS7TFMYl-BicHLN0okZpM - 200 5484 text/css 154.4952ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.377 +09:00 | INF | TraceId: f868ec0d7f33fa0ea0865638dd97ccb0 | Request finished HTTP/2 GET https://localhost:7053/_vs/browserLink - 200 null text/javascript; charset=UTF-8 126.6968ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.269 +09:00 | INF | TraceId: 10c1e197fb0d632cb215d3d3efea6ab7 | Sending file. Request path: '/css/site.css'. Physical path: 'C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement\wwwroot\css\site.css' | Ex:  | Source: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware
+2026-04-10 15:58:51.378 +09:00 | INF | TraceId: c71079968525ebb20bf61f6d9e9e3837 | Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js' | Ex:  | Source: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware
+2026-04-10 15:58:51.351 +09:00 | INF | TraceId: 747fb902ffd314ac1071307d068503a0 | Sending file. Request path: '/js/site.js'. Physical path: 'C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement\wwwroot\js\site.js' | Ex:  | Source: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware
+2026-04-10 15:58:51.345 +09:00 | INF | TraceId: 2711340fbc1beb824f88b8815283ecd3 | Sending file. Request path: '/js/viewer.js'. Physical path: 'C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement\wwwroot\js\viewer.js' | Ex:  | Source: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware
+2026-04-10 15:58:51.391 +09:00 | INF | TraceId: 10c1e197fb0d632cb215d3d3efea6ab7 | Request finished HTTP/2 GET https://localhost:7053/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - 200 362 text/css 194.0397ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.391 +09:00 | INF | TraceId: d5dc9453b14d21bfa5282fbe137ea679 | Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement\wwwroot\lib\jquery\dist\jquery.min.js' | Ex:  | Source: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware
+2026-04-10 15:58:51.395 +09:00 | INF | TraceId: c71079968525ebb20bf61f6d9e9e3837 | Request finished HTTP/2 GET https://localhost:7053/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78474 text/javascript 194.7327ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.400 +09:00 | INF | TraceId: 747fb902ffd314ac1071307d068503a0 | Request finished HTTP/2 GET https://localhost:7053/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 169.5519ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.402 +09:00 | INF | TraceId: 2711340fbc1beb824f88b8815283ecd3 | Request finished HTTP/2 GET https://localhost:7053/js/viewer.js?v=THFSpdpM5srCm2eY0W9QQWeloq3XT5CtDGxMlsruRy0 - 200 31595 text/javascript 172.4707ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:51.410 +09:00 | INF | TraceId: d5dc9453b14d21bfa5282fbe137ea679 | Request finished HTTP/2 GET https://localhost:7053/lib/jquery/dist/jquery.min.js - 200 89503 text/javascript 209.3136ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:52.367 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Request starting HTTP/2 POST https://localhost:7053/api/IssuesApi/GetViewerToken - null 0 | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:52.379 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Executing endpoint 'IssueManagement.Controllers.IssuesApiController.GetViewerToken (IssueManagement)' | Ex:  | Source: Microsoft.AspNetCore.Routing.EndpointMiddleware
+2026-04-10 15:58:52.399 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Route matched with {action = "GetViewerToken", controller = "IssuesApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetViewerToken(System.Threading.CancellationToken) on controller IssueManagement.Controllers.IssuesApiController (IssueManagement). | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+2026-04-10 15:58:52.408 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Executing action method IssueManagement.Controllers.IssuesApiController.GetViewerToken (IssueManagement) - Validation state: "Valid" | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+2026-04-10 15:58:52.440 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Requesting APS access token from https://developer.api.autodesk.com/authentication/v2/token with client_id U4kXR3o9HEREsY9rdh0HfFZFry6FlvCkbFmDdLNXQyY8uxND | Ex:  | Source: IssueManagement.Infrastructure.Authorization.ApsAuthService
+2026-04-10 15:58:52.485 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Created HTTP client for APS token request. | Ex:  | Source: IssueManagement.Infrastructure.Authorization.ApsAuthService
+2026-04-10 15:58:52.490 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Start processing HTTP request POST https://developer.api.autodesk.com/authentication/v2/token | Ex:  | Source: System.Net.Http.HttpClient.APSTokenEndPointClient.LogicalHandler
+2026-04-10 15:58:52.625 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Sending HTTP request POST https://developer.api.autodesk.com/authentication/v2/token | Ex:  | Source: System.Net.Http.HttpClient.APSTokenEndPointClient.ClientHandler
+2026-04-10 15:58:52.894 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Received HTTP response headers after 261.4619ms - 200 | Ex:  | Source: System.Net.Http.HttpClient.APSTokenEndPointClient.ClientHandler
+2026-04-10 15:58:52.905 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Execution attempt. Source: '-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: 278.2457ms | Ex:  | Source: Polly
+2026-04-10 15:58:52.918 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Execution attempt. Source: '-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: 311.9813ms | Ex:  | Source: Polly
+2026-04-10 15:58:52.923 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | End processing HTTP request after 433.7271ms - 200 | Ex:  | Source: System.Net.Http.HttpClient.APSTokenEndPointClient.LogicalHandler
+2026-04-10 15:58:52.941 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Executed action method IssueManagement.Controllers.IssuesApiController.GetViewerToken (IssueManagement), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 525.9756ms. | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+2026-04-10 15:58:52.950 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+2026-04-10 15:58:52.960 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Executed action IssueManagement.Controllers.IssuesApiController.GetViewerToken (IssueManagement) in 555.3838ms | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+2026-04-10 15:58:52.964 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Executed endpoint 'IssueManagement.Controllers.IssuesApiController.GetViewerToken (IssueManagement)' | Ex:  | Source: Microsoft.AspNetCore.Routing.EndpointMiddleware
+2026-04-10 15:58:52.966 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | HTTP POST /api/IssuesApi/GetViewerToken responded 200 in 592.6364 ms | Ex:  | Source: Serilog.AspNetCore.RequestLoggingMiddleware
+2026-04-10 15:58:52.970 +09:00 | INF | TraceId: f2c2ff9066dabaf1d50462d8ff6f9862 | Request finished HTTP/2 POST https://localhost:7053/api/IssuesApi/GetViewerToken - 200 null application/json; charset=utf-8 603.1389ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:55.032 +09:00 | INF | TraceId: c26d77494c5cfe92bc64a9c223054362 | Request starting HTTP/2 GET https://localhost:7053/api/IssuesApi/GetAllIssues - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 15:58:55.040 +09:00 | INF | TraceId: c26d77494c5cfe92bc64a9c223054362 | Executing endpoint 'IssueManagement.Controllers.IssuesApiController.GetAllIssues (IssueManagement)' | Ex:  | Source: Microsoft.AspNetCore.Routing.EndpointMiddleware
+2026-04-10 15:58:55.054 +09:00 | INF | TraceId: c26d77494c5cfe92bc64a9c223054362 | Route matched with {action = "GetAllIssues", controller = "IssuesApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllIssues(System.Nullable`1[IssueManagement.Domain.Enums.IssueStatus], System.Nullable`1[IssueManagement.Domain.Enums.IssueType], System.Threading.CancellationToken) on controller IssueManagement.Controllers.IssuesApiController (IssueManagement). | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+2026-04-10 15:58:55.060 +09:00 | INF | TraceId: c26d77494c5cfe92bc64a9c223054362 | Executing action method IssueManagement.Controllers.IssuesApiController.GetAllIssues (IssueManagement) - Validation state: "Valid" | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+2026-04-10 15:58:55.385 +09:00 | WRN | TraceId: c26d77494c5cfe92bc64a9c223054362 | Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. | Ex:  | Source: Microsoft.EntityFrameworkCore.Query
+2026-04-10 15:58:55.423 +09:00 | INF | TraceId: c26d77494c5cfe92bc64a9c223054362 | Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[ID], [i].[CreatedBy], [i].[CreatedOn], [i].[DeletedOn], [i].[Description], [i].[LocationDbId], [i].[LocationType], [i].[LocationWorldX], [i].[LocationWorldY], [i].[LocationWorldZ], [i].[Status], [i].[Title], [i].[Type], [i].[UpdatedBy], [i].[UpdatedOn], [i0].[ID], [i0].[BlobKey], [i0].[ContentType], [i0].[CorrectionStage], [i0].[CreatedBy], [i0].[CreatedOn], [i0].[DeletedOn], [i0].[FileName], [i0].[IssueId], [i0].[UpdatedBy], [i0].[UpdatedOn], [i1].[ID], [i1].[Comment], [i1].[CreatedBy], [i1].[CreatedOn], [i1].[DeletedOn], [i1].[IssueId], [i1].[Status], [i1].[UpdatedBy], [i1].[UpdatedOn]
+FROM [Issues] AS [i]
+LEFT JOIN [IssuePhotos] AS [i0] ON [i].[ID] = [i0].[IssueId]
+LEFT JOIN [IssueStatusHistories] AS [i1] ON [i].[ID] = [i1].[IssueId]
+ORDER BY [i].[CreatedOn] DESC, [i].[ID], [i0].[ID] | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 15:58:55.465 +09:00 | INF | TraceId: c26d77494c5cfe92bc64a9c223054362 | Executed action method IssueManagement.Controllers.IssuesApiController.GetAllIssues (IssueManagement), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 400.9075ms. | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+2026-04-10 15:58:55.468 +09:00 | INF | TraceId: c26d77494c5cfe92bc64a9c223054362 | Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[IssueManagement.Application.DTOs.IssueDto, IssueManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'. | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+2026-04-10 15:58:55.500 +09:00 | INF | TraceId: c26d77494c5cfe92bc64a9c223054362 | Executed action IssueManagement.Controllers.IssuesApiController.GetAllIssues (IssueManagement) in 441.2738ms | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+2026-04-10 15:58:55.503 +09:00 | INF | TraceId: c26d77494c5cfe92bc64a9c223054362 | Executed endpoint 'IssueManagement.Controllers.IssuesApiController.GetAllIssues (IssueManagement)' | Ex:  | Source: Microsoft.AspNetCore.Routing.EndpointMiddleware
+2026-04-10 15:58:55.505 +09:00 | INF | TraceId: c26d77494c5cfe92bc64a9c223054362 | HTTP GET /api/IssuesApi/GetAllIssues responded 200 in 466.8588 ms | Ex:  | Source: Serilog.AspNetCore.RequestLoggingMiddleware
+2026-04-10 15:58:55.511 +09:00 | INF | TraceId: c26d77494c5cfe92bc64a9c223054362 | Request finished HTTP/2 GET https://localhost:7053/api/IssuesApi/GetAllIssues - 200 null application/json; charset=utf-8 479.1808ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 16:58:47.748 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Request starting HTTP/2 POST https://localhost:7053/api/IssuesApi/GetViewerToken - null 0 | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 16:58:47.783 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Executing endpoint 'IssueManagement.Controllers.IssuesApiController.GetViewerToken (IssueManagement)' | Ex:  | Source: Microsoft.AspNetCore.Routing.EndpointMiddleware
+2026-04-10 16:58:47.786 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Route matched with {action = "GetViewerToken", controller = "IssuesApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetViewerToken(System.Threading.CancellationToken) on controller IssueManagement.Controllers.IssuesApiController (IssueManagement). | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+2026-04-10 16:58:47.793 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Executing action method IssueManagement.Controllers.IssuesApiController.GetViewerToken (IssueManagement) - Validation state: "Valid" | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+2026-04-10 16:58:47.797 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Requesting APS access token from https://developer.api.autodesk.com/authentication/v2/token with client_id U4kXR3o9HEREsY9rdh0HfFZFry6FlvCkbFmDdLNXQyY8uxND | Ex:  | Source: IssueManagement.Infrastructure.Authorization.ApsAuthService
+2026-04-10 16:58:47.802 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Created HTTP client for APS token request. | Ex:  | Source: IssueManagement.Infrastructure.Authorization.ApsAuthService
+2026-04-10 16:58:47.805 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Start processing HTTP request POST https://developer.api.autodesk.com/authentication/v2/token | Ex:  | Source: System.Net.Http.HttpClient.APSTokenEndPointClient.LogicalHandler
+2026-04-10 16:58:47.812 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Sending HTTP request POST https://developer.api.autodesk.com/authentication/v2/token | Ex:  | Source: System.Net.Http.HttpClient.APSTokenEndPointClient.ClientHandler
+2026-04-10 16:58:48.087 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Received HTTP response headers after 272.6095ms - 200 | Ex:  | Source: System.Net.Http.HttpClient.APSTokenEndPointClient.ClientHandler
+2026-04-10 16:58:48.183 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Execution attempt. Source: '-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: 371.0761ms | Ex:  | Source: Polly
+2026-04-10 16:58:48.251 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Execution attempt. Source: '-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: 442.9582ms | Ex:  | Source: Polly
+2026-04-10 16:58:48.320 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | End processing HTTP request after 514.8965ms - 200 | Ex:  | Source: System.Net.Http.HttpClient.APSTokenEndPointClient.LogicalHandler
+2026-04-10 16:58:48.363 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Executed action method IssueManagement.Controllers.IssuesApiController.GetViewerToken (IssueManagement), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 566.3691ms. | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+2026-04-10 16:58:48.372 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+2026-04-10 16:58:48.375 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Executed action IssueManagement.Controllers.IssuesApiController.GetViewerToken (IssueManagement) in 582.8009ms | Ex:  | Source: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+2026-04-10 16:58:48.378 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Executed endpoint 'IssueManagement.Controllers.IssuesApiController.GetViewerToken (IssueManagement)' | Ex:  | Source: Microsoft.AspNetCore.Routing.EndpointMiddleware
+2026-04-10 16:58:48.382 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | HTTP POST /api/IssuesApi/GetViewerToken responded 200 in 599.9658 ms | Ex:  | Source: Serilog.AspNetCore.RequestLoggingMiddleware
+2026-04-10 16:58:48.385 +09:00 | INF | TraceId: df589b7f0b91f6bca145cb19c63f2f12 | Request finished HTTP/2 POST https://localhost:7053/api/IssuesApi/GetViewerToken - 200 null application/json; charset=utf-8 637.9015ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 17:08:44.292 +09:00 | INF | TraceId:  | Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 17:08:44.471 +09:00 | INF | TraceId:  | Executed DbCommand (53ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]'); | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 17:08:44.488 +09:00 | INF | TraceId:  | Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 17:08:44.495 +09:00 | INF | TraceId:  | Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]'); | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 17:08:44.518 +09:00 | INF | TraceId:  | Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId]; | Ex:  | Source: Microsoft.EntityFrameworkCore.Database.Command
+2026-04-10 17:08:44.558 +09:00 | INF | TraceId:  | No migrations were applied. The database is already up to date. | Ex:  | Source: Microsoft.EntityFrameworkCore.Migrations
+2026-04-10 17:08:44.756 +09:00 | INF | TraceId:  | User profile is available. Using 'C:\Users\105-4846\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. | Ex:  | Source: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager
+2026-04-10 17:08:45.830 +09:00 | INF | TraceId:  | Now listening on: https://localhost:61204 | Ex:  | Source: Microsoft.Hosting.Lifetime
+2026-04-10 17:08:45.830 +09:00 | INF | TraceId:  | Now listening on: http://localhost:61209 | Ex:  | Source: Microsoft.Hosting.Lifetime
+2026-04-10 17:08:45.994 +09:00 | INF | TraceId:  | Application started. Press Ctrl+C to shut down. | Ex:  | Source: Microsoft.Hosting.Lifetime
+2026-04-10 17:08:45.994 +09:00 | INF | TraceId:  | Hosting environment: Development | Ex:  | Source: Microsoft.Hosting.Lifetime
+2026-04-10 17:08:45.995 +09:00 | INF | TraceId:  | Content root path: C:\Projects\1 Study and work space\Issue-Management\IssueManagement\IssueManagement | Ex:  | Source: Microsoft.Hosting.Lifetime
+2026-04-10 17:09:44.542 +09:00 | INF | TraceId: c43be2e04681329a408c64fc69635202 | Request starting HTTP/1.1 GET http://localhost:5102/ - null null | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
+2026-04-10 17:09:44.712 +09:00 | INF | TraceId: c43be2e04681329a408c64fc69635202 | Request finished HTTP/1.1 GET http://localhost:5102/ - 307 null null 218.1672ms | Ex:  | Source: Microsoft.AspNetCore.Hosting.Diagnostics
