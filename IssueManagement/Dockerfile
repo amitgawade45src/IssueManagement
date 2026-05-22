@@ -1,5 +1,5 @@
 # -------- Build Stage --------
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
 # Copy entire solution
@@ -15,7 +15,7 @@ RUN dotnet publish IssueManagement/IssueManagement.csproj \
     --no-restore
 
 # -------- Runtime Stage --------
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+FROM mcr.microsoft.com/dotnet/aspnet:10.0
 WORKDIR /app
 
 COPY --from=build /app/publish .
